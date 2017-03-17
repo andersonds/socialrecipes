@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipes</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://localhost:3000/"><strong>Social</strong> Recipes</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form role="form" action="/">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Início', root_path %></li>
+          <li><%= link_to 'Cadastrar receitas', new_recipe_path %></li>
+          <li><%= link_to 'Cadastrar usuários', new_user_path %></li>
+          <li><%= link_to 'Cadastrar cozinha', new_cookery_path %></li>
+          <li><%= link_to 'Cadastrar tipo de comida', new_food_path %></li>
+          <li><input type="text" placeholder="Buscar" name="keywords"></li>
+          <li><button type="submit" class="btn btn-primary btn-block">Submit</button></li>
+      </form>
+
+          </ul>
+        </li>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <section class="recipes">
+    <% if @allrecipes.present? %>
+      <% @allrecipes.each do |recipe| %>
+      <div class="col-md-12">
+        <h1><%= recipe.name %></h1>
+        <p><%= recipe.ingredients %></p>
+          </div>
+      <% end %>
+    <% end %>
+  </section>
+</div>
+    <%= yield %>
+  </body>
+</html>
