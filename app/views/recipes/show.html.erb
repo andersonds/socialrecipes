@@ -1,11 +1,56 @@
-<dl>
-  <dt><%= @recipe.name %></dt>
-  <dt><%= @recipe.cookery.name %></dt>
-  <dt><%= @recipe.food.name %></dt>
-  <dt><%= @recipe.people_portion %></dt>
-  <dt><%= @recipe.preparation_time %></dt>
-  <dt><%= @recipe.difficult %></dt>
-  <dt><%= @recipe.ingredients %></dt>
-  <dt><%= @recipe.steps %></dt>
-  <dt><%= image_tag @recipe.picture.url(:medium) %></dt>
-</dl>
+
+<body>
+ 
+
+<div class="jumbotron">
+	<div class="container">
+		<div class="col-lg-9">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><%= @recipe.name %></h3>
+				</div><--panel-heading-->
+				<div class="panel-body">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+							<th>cookery.name</th>
+							<th>food.name</th>
+							<th>people_portion</th>
+							<th>preparation_time</th>
+							<th>difficult</th>				  
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><%= @recipe.cookery.name %></td>
+								<td><%= @recipe.food.name %></td>
+								<td><%= @recipe.people_portion %></td>
+								<td><%= @recipe.preparation_time %></td>				
+								<td><%= @recipe.difficult %></td>
+							</tr>
+							<tr>
+								<td>Ingredientes:</td>
+							</tr>
+							<tr>
+								<td class="img-responsive img-rounded-
+center-block">						<h3 class="panel-title"><%= @recipe.ingredients %></h3>
+								</td>
+							</tr>
+							<tr>
+								<td>IMG	
+									<%= image_tag @recipe.picture.url(:medium) %>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<%= @recipe.steps %>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div><--panel panel-default-->
+		</div><--col-lg-6 col-lg-offset-3-->
+	</div><--container-->
+</div><--jumbotron-->
+</body>

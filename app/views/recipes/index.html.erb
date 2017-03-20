@@ -17,6 +17,20 @@
                   <dd><%= recipe.food.name %></dd>
                   <dd><%= recipe.cookery.name %></dd>
                   <dd><%= recipe.difficult %></dd>
+				  	<!--Início Teste -->
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" href="#collapse1"><%= recipe.name %></a>
+						</h4>
+					</div>
+						<div id="collapse1" class="panel-collapse collapse">
+						<div class="panel-body"><%= link_to recipe.name, recipe_path(recipe) %></div>
+						<div class="panel-footer"><%= recipe.food.name %></div>
+						<div class="panel-footer"><%= recipe.cookery.name %></div>
+						<div class="panel-footer"><%= recipe.difficult %></div>
+						
+					</div>
+					<!--Fim Teste-->
                 </dt>
               <% end %>
            </div>
@@ -51,7 +65,8 @@
           <dt>
             <dd><%= link_to cookery.name, cookery_path(cookery) %></dd>
           </dt>
-        <% end %>
+         <% end %>
     </div>
+
   </div
 </div>
